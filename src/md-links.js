@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const pathExists = (path1) => {
-  const inputPath = path.normalize(path1);
+const pathExists = (inputPath) => {
   console.log(inputPath);
   if (fs.existsSync(inputPath)) {
     console.log(fs.existsSync(inputPath));
@@ -16,17 +15,21 @@ const pathExists = (path1) => {
 
 const convertToAbsolutePath = (inputPath) => {
   console.log('Convert to an absolute path.');
-  path.resolve(inputPath);
+  const absolutePathResolve = path.resolve(inputPath);
+  console.log(absolutePathResolve);
+  return absolutePathResolve;
 };
 
-const absolutePath = (inputPath) => {
+const absolutePath = (path1) => {
+  const inputPath = path.normalize(path1);
   if (pathExists(inputPath) === true) {
     if (path.isAbsolute(inputPath)) {
       console.log('Path is absolute.');
-    } else {
-      console.log('Path is not absolute');
-      convertToAbsolutePath(inputPath);
+      console.log(inputPath);
+      return inputPath;
     }
+    console.log('Path is not absolute');
+    convertToAbsolutePath(inputPath);
   }
 };
 
