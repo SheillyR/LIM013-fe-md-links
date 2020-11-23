@@ -14,4 +14,20 @@ const pathExists = (path1) => {
   return false;
 };
 
-exports.pathExists = pathExists;
+const convertToAbsolutePath = (inputPath) => {
+  console.log('Convert to an absolute path.');
+  path.resolve(inputPath);
+};
+
+const absolutePath = (inputPath) => {
+  if (pathExists(inputPath) === true) {
+    if (path.isAbsolute(inputPath)) {
+      console.log('Path is absolute.');
+    } else {
+      console.log('Path is not absolute');
+      convertToAbsolutePath(inputPath);
+    }
+  }
+};
+
+exports.absolutePath = absolutePath;
