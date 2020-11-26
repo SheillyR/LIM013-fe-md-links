@@ -3,34 +3,38 @@ const path = require('path');
 
 const pathExists = (inputPath) => {
   console.log(inputPath);
-  if (fs.existsSync(inputPath)) {
-    console.log(fs.existsSync(inputPath));
-    console.log('Path exists.');
-    return true;
-  }
-  console.log(fs.existsSync(inputPath));
-  console.log('Path not found.');
-  return false;
+  const booleanPathExists = fs.existsSync(inputPath);
+  console.log(booleanPathExists);
+  return booleanPathExists;
+};
+
+const pathIsAbsolute = (inputPath) => {
+  const booleanAbsolutePath = path.isAbsolute(inputPath);
+  console.log(booleanAbsolutePath);
+  return booleanAbsolutePath;
 };
 
 const convertToAbsolutePath = (inputPath) => {
   console.log('Convert to an absolute path.');
-  const absolutePathResolve = path.resolve(inputPath);
-  console.log(absolutePathResolve);
-  return absolutePathResolve;
+  const resolveAbsolutePath = path.resolve(inputPath);
+  console.log(resolveAbsolutePath);
+  return resolveAbsolutePath;
 };
 
 const absolutePath = (path1) => {
   const inputPath = path.normalize(path1);
+  let outputPath;
   if (pathExists(inputPath) === true) {
-    if (path.isAbsolute(inputPath)) {
+    if (pathIsAbsolute(inputPath) === true) {
       console.log('Path is absolute.');
       console.log(inputPath);
-      return inputPath;
+      outputPath = inputPath;
+    } else {
+      console.log('Path is not absolute');
+      outputPath = convertToAbsolutePath(inputPath);
     }
-    console.log('Path is not absolute');
-    convertToAbsolutePath(inputPath);
   }
+  return outputPath;
 };
 
 exports.absolutePath = absolutePath;
