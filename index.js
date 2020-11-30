@@ -2,6 +2,6 @@ module.exports = () => {
   // ...
 };
 
-const mdLinks = require('./src/md-links.js');
+const dirFile = require('./src/dir-file.js');
 
-mdLinks.absolutePath('..\\LIM013-fe-md-links\\package.json');
+dirFile.isDirectory('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\package.json');

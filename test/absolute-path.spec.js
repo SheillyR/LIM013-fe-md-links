@@ -1,4 +1,4 @@
-const mdLinks = require('../src/md-links.js');
+const mdLinks = require('../src/absolute-path');
 
 // mdLinks.pathNormalize function test
 
