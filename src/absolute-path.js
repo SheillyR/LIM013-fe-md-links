@@ -1,32 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const pathNormalize = (inputPath) => {
-  // console.log(inputPath);
-  const pathNormalizeOutput = path.normalize(inputPath);
-  // console.log(pathNormalizeOutput);
-  return pathNormalizeOutput;
-};
+const pathNormalize = (inputPath) => path.normalize(inputPath);
 
-const pathExists = (inputPath) => {
-  // console.log(inputPath);
-  const pathExistsBoolean = fs.existsSync(inputPath);
-  // console.log(pathExistsBoolean);
-  return pathExistsBoolean;
-};
+const pathExists = (inputPath) => fs.existsSync(inputPath);
 
-const pathIsAbsolute = (inputPath) => {
-  const absolutePathBoolean = path.isAbsolute(inputPath);
-  // console.log(absolutePathBoolean);
-  return absolutePathBoolean;
-};
+const pathIsAbsolute = (inputPath) => path.isAbsolute(inputPath);
 
-const convertToAbsolutePath = (inputPath) => {
-  // console.log('Convert to an absolute path.');
-  const resolveAbsolutePath = path.resolve(inputPath);
-  // console.log(resolveAbsolutePath);
-  return resolveAbsolutePath;
-};
+const convertToAbsolutePath = (inputPath) => path.resolve(inputPath);
 
 const absolutePath = (path1) => {
   if (!path1) throw Error('path1 cannot be empty');
