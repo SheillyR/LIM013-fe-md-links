@@ -15,11 +15,8 @@ const absolutePath = (path1) => {
   let outputPath;
   if (pathExists(inputPath) === true) {
     if (pathIsAbsolute(inputPath) === true) {
-      // console.log('Path is absolute.');
-      // console.log(inputPath);
       outputPath = inputPath;
     } else {
-      // console.log('Path is not absolute');
       outputPath = convertToAbsolutePath(inputPath);
     }
     return outputPath;
