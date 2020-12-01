@@ -5,7 +5,7 @@ const absPath = require('./absolute-path.js');
 const statsObj = (inputPath) => fs.statSync(inputPath);
 
 // Getting information for a directory, return a boolean value.
-const isDirectory = (inputPath, statsObject) => statsObject.isDirectory(inputPath);
+const isDirectory = (inputPath) => fs.statSync(inputPath).isDirectory();
 
 // Function to get current filenames in directory
 const filenames = (inputPath) => fs.readdirSync(inputPath);
@@ -20,7 +20,8 @@ const readDir = (inputPath) => {
   if (isDirectoryBoleean === true) {
     const fileNames = filenames(absolutePathOutput);
     console.log(absolutePathOutput);
-    /*if (fileNames.length === 0) {
+    /*
+    if (fileNames.length === 0) {
       return;
     }
     */
