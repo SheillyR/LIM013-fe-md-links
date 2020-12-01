@@ -2,8 +2,6 @@ const fs = require('fs');
 const absPath = require('./absolute-path.js');
 
 // It returns a Stats object which contains the details of the file path.
-const statsObj = (inputPath) => fs.statSync(inputPath);
-
 // Getting information for a directory, return a boolean value.
 const isDirectory = (inputPath) => fs.statSync(inputPath).isDirectory();
 
@@ -11,11 +9,9 @@ const isDirectory = (inputPath) => fs.statSync(inputPath).isDirectory();
 const filenames = (inputPath) => fs.readdirSync(inputPath);
 
 const readDir = (inputPath) => {
-  const absolutePathOutput = absPath.absolutePath(inputPath);
+  const absolutePathOutput = absPath.verifyAbsolutePath(inputPath);
   console.log(absolutePathOutput);
-  const statsObject = statsObj(absolutePathOutput);
-  console.log(statsObject);
-  const isDirectoryBoleean = isDirectory(absolutePathOutput, statsObject);
+  const isDirectoryBoleean = isDirectory(absolutePathOutput);
   console.log(isDirectoryBoleean);
   if (isDirectoryBoleean === true) {
     const fileNames = filenames(absolutePathOutput);
@@ -33,14 +29,7 @@ const readDir = (inputPath) => {
   }
 };
 
-// Base case
-/*
-const mdFile = (inputPath) => {
-
-};
-*/
 module.exports = {
-  statsObj,
   isDirectory,
   readDir,
 };
