@@ -7,17 +7,28 @@ const statsObj = (inputPath) => fs.statSync(inputPath);
 // Getting information for a directory, return a boolean value.
 const isDirectory = (inputPath, statsObject) => statsObject.isDirectory(inputPath);
 
+// Function to get current filenames in directory
+const filenames = (inputPath) => fs.readdirSync(inputPath);
+
 const readDir = (inputPath) => {
   const absolutePathOutput = absPath.absolutePath(inputPath);
-  // console.log(absolutePathOutput);
+  console.log(absolutePathOutput);
   const statsObject = statsObj(absolutePathOutput);
-  // console.log(statsObject);
+  console.log(statsObject);
   const isDirectoryBoleean = isDirectory(absolutePathOutput, statsObject);
-  // console.log(isDirectoryBoleean);
+  console.log(isDirectoryBoleean);
   if (isDirectoryBoleean === true) {
-    const filenames = fs.readdirSync(absolutePathOutput);
-    console.log(filenames);
-    console.log(filenames[0]);
+    const fileNames = filenames(absolutePathOutput);
+    console.log(absolutePathOutput);
+    /*if (fileNames.length === 0) {
+      return;
+    }
+    */
+    console.log(fileNames);
+    fileNames.forEach((element) => {
+      console.log(element);
+      // readDir(element);
+    });
   }
 };
 

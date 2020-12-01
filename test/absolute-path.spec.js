@@ -70,7 +70,7 @@ describe('absPath.absolutePath', () => {
   });
 
   it('should return the absolute path as absolute path', () => {
-    expect(absPath.absolutePath('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links')).toBe('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links');
+    expect(absPath.absolutePath('D:\\LABORATORIA\\repaso html')).toBe('D:\\LABORATORIA\\repaso html');
   });
 
   it('should return the relative path as absolute path', () => {
