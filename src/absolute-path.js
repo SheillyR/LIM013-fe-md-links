@@ -5,10 +5,10 @@ const convertToAbsolutePath = (inputPath) => (path.isAbsolute(inputPath)
   ? inputPath : path.resolve(inputPath));
 
 const verifyAbsolutePath = (inputPath) => {
-  if (!inputPath) throw Error('path1 cannot be empty');
-  const pathNormalize = path.normalize(inputPath);
-  if (fs.existsSync(pathNormalize)) {
-    return convertToAbsolutePath(pathNormalize);
+  if (!inputPath) throw Error('argument cannot be empty');
+  const normalizePath = path.normalize(inputPath);
+  if (fs.existsSync(normalizePath)) {
+    return convertToAbsolutePath(normalizePath);
   }
   throw Error('Path not found');
 };

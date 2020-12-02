@@ -8,11 +8,11 @@ describe('absPath.convertToAbsolutePath', () => {
   });
 
   it('should return the same absolute path', () => {
-    expect(absPath.convertToAbsolutePath('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\package.json')).toBe('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\package.json');
+    expect(absPath.convertToAbsolutePath(__dirname)).toBe(__dirname);
   });
 
   it('should return the absolute path of the relative path package.json', () => {
-    expect(absPath.convertToAbsolutePath('package.json')).toBe('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\package.json');
+    expect(absPath.convertToAbsolutePath('test\\absolute-path.spec.js')).toBe(__filename);
   });
 });
 
@@ -26,15 +26,15 @@ describe('absPath.verifyAbsolutePath', () => {
   it('should throw an error if called without an argument', () => {
     expect(() => {
       absPath.verifyAbsolutePath();
-    }).toThrow('path1 cannot be empty');
+    }).toThrow('argument cannot be empty');
   });
 
   it('should return the same absolute path', () => {
-    expect(absPath.verifyAbsolutePath('D:\\LABORATORIA\\repaso html')).toBe('D:\\LABORATORIA\\repaso html');
+    expect(absPath.verifyAbsolutePath(__dirname)).toBe(__dirname);
   });
 
   it('should return the relative path as absolute path', () => {
-    expect(absPath.verifyAbsolutePath('..\\LIM013-fe-md-links\\package.json')).toBe('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\package.json');
+    expect(absPath.verifyAbsolutePath('test\\absolute-path.spec.js')).toBe(__filename);
   });
 
   it('should throw an error if path not found', () => {
