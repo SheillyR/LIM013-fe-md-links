@@ -13,7 +13,5 @@ const verifyAbsolutePath = (inputPath) => {
   throw Error('Path not found');
 };
 
-module.exports = {
-  convertToAbsolutePath,
-  verifyAbsolutePath,
-};
+exports.convertToAbsolutePath = convertToAbsolutePath;
+exports.verifyAbsolutePath = verifyAbsolutePath;
