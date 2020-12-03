@@ -29,10 +29,6 @@ describe('absPath.verifyAbsolutePath', () => {
     }).toThrow('argument cannot be empty');
   });
 
-  it('should return the same absolute path', () => {
-    expect(absPath.verifyAbsolutePath(__dirname)).toBe(__dirname);
-  });
-
   it('should return the relative path as absolute path', () => {
     expect(absPath.verifyAbsolutePath('test\\absolute-path.spec.js')).toBe(__filename);
   });
