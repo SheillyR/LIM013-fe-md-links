@@ -2,6 +2,6 @@ module.exports = () => {
   // ...
 };
 
-const dirFile = require('./src/dir-file.js');
+const mdLinks = require('./src/md-links.js');
 
-dirFile.readDir('D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\src');
+mdLinks.mdLinks('D:\\LABORATORIA\\test-md');

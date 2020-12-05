@@ -8,26 +8,20 @@ const isDirectory = (inputPath) => fs.statSync(inputPath).isDirectory();
 
 const readDir = (inputPath) => {
   const absolutePathOutput = absPath.verifyAbsolutePath(inputPath);
-  // console.log(absolutePathOutput);
   const isDirectoryBoolean = isDirectory(absolutePathOutput);
-  let array = [];
-  // console.log(isDirectoryBoolean);
+  let arrayOfPaths = [];
   if (isDirectoryBoolean) {
     // Function to get current filenames in directory
     const fileNames = fs.readdirSync(absolutePathOutput);
-    // console.log(absolutePathOutput);
-    // console.log(fileNames);
     fileNames.forEach((element) => {
-      // console.log(element);
       const newPath = path.join(absolutePathOutput, element);
-      // console.log(newPath);
-      array = [].concat(readDir(newPath));
+      arrayOfPaths = arrayOfPaths.concat(readDir(newPath));
     });
   } else {
-    array.push(absolutePathOutput);
+    arrayOfPaths.push(absolutePathOutput);
   }
-  // console.log(array);
-  return array;
+  // console.log(arrayOfPaths);
+  return arrayOfPaths;
 };
 
 module.exports = {
