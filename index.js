@@ -1,7 +1,8 @@
-module.exports = () => {
-  // ...
-};
+#!/usr/bin/env node
 
 const mdLinks = require('./src/md-links.js');
 
-mdLinks.mdLinks('D:\\LABORATORIA\\test-md');
+const inputPath = process.argv[2];
+mdLinks.mdLinks(inputPath);
+
+// 'D:\\LABORATORIA\\test-md'

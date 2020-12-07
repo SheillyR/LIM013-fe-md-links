@@ -20,7 +20,6 @@ const readDir = (inputPath) => {
   } else {
     arrayOfPaths.push(absolutePathOutput);
   }
-  // console.log(arrayOfPaths);
   return arrayOfPaths;
 };
 
