@@ -1,31 +1,25 @@
 const fetch = require('node-fetch');
-const { getMdLinks } = require('./md-links.js');
 
-const validateLinks = (inputPath) => {
-  const arrayOfObjMdLinks = getMdLinks(inputPath);
-  // let urlObject = [];
-  // const arrayOfObjUrl = arrayOfObjMdLinks.filter((link) => link.href.includes('http'));
+const validateLinks = (arrayOfObjMdLinks) => {
   const arrayValidLinks = arrayOfObjMdLinks.map((link) => fetch(link.href)
-    .then((response) => console.log(({
+    .then((response) => ({
       ...link,
       status: response.status,
       message: response.statusText,
-    })))
-    .catch((err) => console.log(({
+    }))
+    .catch(() => console.log(({
       ...link,
-      status: err.status,
+      status: 'Error',
       message: 'Fail',
     }))));
   // console.log(validateObjects);
   return Promise.all(arrayValidLinks);
 };
 
-const stats = (inputPath) => {
-  const arrayOfObjMdLinks = getMdLinks(inputPath);
-  const arrayOfObjUrl = arrayOfObjMdLinks.filter((link) => link.href.includes('http'));
-  const totalLinks = arrayOfObjUrl.length;
-  const uniqueLinks = [...new Set(arrayOfObjUrl.map((item) => item.href))].length;
-  console.log(`Total: ${totalLinks}\nUnique: ${uniqueLinks} `);
+const stats = (arrayOfObjMdLinks) => {
+  // const arrayOfObjUrl = arrayOfObjMdLinks.filter((link) => link.href.includes('http'));
+  const totalLinks = arrayOfObjMdLinks.length;
+  const uniqueLinks = [...new Set(arrayOfObjMdLinks.map((item) => item.href))].length;
   return `Total: ${totalLinks}\nUnique: ${uniqueLinks} `;
 };
 

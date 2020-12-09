@@ -3,11 +3,9 @@ const { validateLinks } = require('./options.js');
 
 const mdLinks = (inputPath, options) => new Promise((resolve) => {
   const arrayOfObjMdLinks = getMdLinks(inputPath);
-  if (!options) resolve(arrayOfObjMdLinks);
-  if (options.validate) resolve(validateLinks(arrayOfObjMdLinks));
+  const arrayOfObjUrl = arrayOfObjMdLinks.filter((link) => link.href.includes('http'));
+  if (options.validate) resolve(validateLinks(arrayOfObjUrl));
+  else resolve(arrayOfObjUrl);
 });
 
-module.exports = {
-  getMdLinks,
-  mdLinks,
-};
+exports.mdLinks = mdLinks;
