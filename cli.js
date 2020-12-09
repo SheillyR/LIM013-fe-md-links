@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const { program } = require('commander');
-const { mainMdLinks } = require('./src/index.js');
+const { mainMdLinks } = require('./src/main.js');
 
 program.version('0.0.1');
 

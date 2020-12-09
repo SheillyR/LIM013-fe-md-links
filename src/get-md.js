@@ -38,7 +38,6 @@ const getMdLinks = (inputPath) => {
   } else {
     throw Error('no files with extension .md');
   }
-  // console.log(arrayOfObjMdLinks);
   return arrayOfObjMdLinks;
 };
 
