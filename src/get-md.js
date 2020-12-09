@@ -27,10 +27,10 @@ const getMdLinks = (inputPath) => {
       const dom = new JSDOM(mdToHtml);
       const nodeList = dom.window.document.querySelectorAll('a');
 
-      nodeList.forEach((elem) => {
+      nodeList.forEach((element) => {
         arrayOfObjMdLinks.push({
-          href: elem.getAttribute('href'),
-          text: elem.textContent,
+          href: element.getAttribute('href'),
+          text: (element.textContent).slice(0, 50),
           file: mdFile,
         });
       });

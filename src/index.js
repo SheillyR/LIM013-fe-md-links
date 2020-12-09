@@ -1,9 +1,11 @@
 const { mdLinks } = require('./md-links');
 
-const mdLinksMain = (inputPath, options) => {
+const mainMdLinks = (inputPath, options) => {
   mdLinks(inputPath, options)
     .then((links) => {
       if()
 
     });
 };
+
+exports.mainMdLinks = mainMdLinks;
