@@ -20,8 +20,16 @@ const validateLinks = (inputPath) => {
   return Promise.all(arrayValidLinks);
 };
 
-const stats = () => {
-  
+const stats = (inputPath) => {
+  const arrayOfObjMdLinks = getMdLinks(inputPath);
+  const arrayOfObjUrl = arrayOfObjMdLinks.filter((link) => link.href.includes('http'));
+  const totalLinks = arrayOfObjUrl.length;
+  const uniqueLinks = [...new Set(arrayOfObjUrl.map((item) => item.href))].length;
+  console.log(`Total: ${totalLinks}\nUnique: ${uniqueLinks} `);
+  return `Total: ${totalLinks}\nUnique: ${uniqueLinks} `;
 };
 
-exports.validateLinks = validateLinks;
+module.exports = {
+  validateLinks,
+  stats,
+};
