@@ -7,9 +7,9 @@ const validateLinks = (arrayOfObjMdLinks) => {
       status: response.status,
       message: response.statusText,
     }))
-    .catch(() => console.log(({
+    .catch((err) => console.log(({
       ...link,
-      status: 'Error',
+      status: err,
       message: 'Fail',
     }))));
   return Promise.all(arrayValidLinks);

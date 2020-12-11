@@ -20,8 +20,9 @@ const getMdFiles = (inputPath) => {
 
 const getMdLinks = (inputPath) => {
   const arrayOfObjMdLinks = [];
-  if (getMdFiles.length !== 0) {
-    getMdFiles(inputPath).forEach((mdFile) => {
+  const getMdFilesArr = getMdFiles(inputPath);
+  if (getMdFilesArr.length !== 0) {
+    getMdFilesArr.forEach((mdFile) => {
       const pathEncoding = fs.readFileSync(mdFile, 'utf-8');
       const mdToHtml = marked(pathEncoding);
       const dom = new JSDOM(mdToHtml);
