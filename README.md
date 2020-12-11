@@ -31,7 +31,7 @@ Module includes executable and an interface that we can import with require to u
 
 ## 4. Installation
 
-####CLI:  `npm install <SheillyR>/md-links`
+CLI:  `npm install <SheillyR>/md-links`
 
 ## 5. Usage
 
