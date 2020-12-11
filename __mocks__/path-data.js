@@ -9,7 +9,7 @@ const fs = jest.createMockFromModule('fs');
 // `fs` APIs are used.
 
 let mockFiles = Object.create(null);
-const setMockFiles = (newMockFiles) => {
+const createMockFiles = (newMockFiles) => {
   mockFiles = Object.create(null);
   const array = [newMockFiles];
   array.forEach((element) => {
@@ -17,16 +17,16 @@ const setMockFiles = (newMockFiles) => {
     if (!mockFiles[dir]) {
       mockFiles[dir] = [];
     }
-    mockFiles[dir].push(dir);
+    return Object.values(mockFiles[dir].push(path.basename(Object.keys(element))));
   });
 };
 
 // A custom version of `readdirSync` that reads from the special mocked out
 // file list set via setMockFiles
 
-const readdirSync = (directoryPath) => mockFiles[directoryPath] || [];
+const existsSync = (directoryPath) => mockFiles[directoryPath];
 
-fs.setMockFiles = setMockFiles;
-fs.readdirSync = readdirSync;
+fs.createMockFiles = createMockFiles;
+fs.existsSync = existsSync;
 
 module.exports = fs;

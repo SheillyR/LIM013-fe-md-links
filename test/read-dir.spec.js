@@ -2,9 +2,12 @@ const dir = require('../src/read-dir.js');
 
 const arrayOfPaths = [
   'D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\test\\absolute-path.spec.js',
+  'D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\test\\md-links.spec.js',
   'D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\test\\options.spec.js',
   'D:\\LABORATORIA\\md-links-project\\LIM013-fe-md-links\\test\\read-dir.spec.js',
 ];
+
+// dir.isDirectory function test
 
 describe('dir.isDirectory', () => {
   test('should be a function', () => {
@@ -20,6 +23,8 @@ describe('dir.isDirectory', () => {
   });
 });
 
+// dir.readDir function test
+
 describe('dir.readDir', () => {
   test('should be a function', () => {
     expect(typeof dir.readDir).toBe('function');
@@ -30,6 +35,6 @@ describe('dir.readDir', () => {
   });
 
   test('should return the file paths in an array', () => {
-    expect(dir.readDir(__filename)).toEqual([arrayOfPaths[2]]);
+    expect(dir.readDir(__filename)).toEqual([arrayOfPaths[3]]);
   });
 });
